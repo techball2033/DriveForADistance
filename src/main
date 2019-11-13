@@ -1,6 +1,10 @@
-import subsystems.*;
+import edu.wpi.first.wpilibj.RobotBase;
 
-public static void main(String args[])
-{
-    
+public final class Main {
+    private Main() {
+    }
+
+    public static void main(String... args) {
+        RobotBase.startRobot(Robot::new);
+    }
 }
