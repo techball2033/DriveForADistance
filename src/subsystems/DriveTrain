@@ -11,6 +11,7 @@ public class DriveTrain {
     private WPI_VictorSPX rightBack;
     private PIDController wheelsPID;
 
+    wheelsPID = new PIDController(p, i, d, wristPot, wheels);
 
     private SpeedControllerGroup leftSpeedGroup;            
     private SpeedControllerGroup rightSpeedGroup;
