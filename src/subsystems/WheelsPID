@@ -14,4 +14,3 @@ public WheelsPID()
   wheels.setInverted(true);
   
 
-  wheelsPID = new PIDController(p, i, d, wristPot, wheels);
