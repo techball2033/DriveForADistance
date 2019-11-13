@@ -1,0 +1,37 @@
+import robot.subsystems.*;
+
+public class Operator {
+    public static final double WHEELS_SPEED_IN = 0.7;
+    public static final double WHEELS_SPEED_OUT = -0.7;
+
+    public static final int PID_ADJUST_SCALE = 10;
+    Wheels wheels;
+    public Operator(int port) {
+      op = new Controller(port);
+      wheels = new Wheels();
+      }
+    public void runOpControls() {
+        wheelControl();
+        }
+    private void wheelControl() {
+        if (getWristAngle() > (WRIST_STARTUP - OVERRIDE_TOLERANCE)) {
+            if(op.getRightBumper() || op.getLeftBumper())
+                System.out.println("Wheels cannot spin as the wrist is too close to the arm");
+            
+            wheels.stopWheels();
+
+            return; //Exits from the function before the speed can be set
+        }
+        if (op.getRightBumper()) {
+            wheels.runWheels(WHEELS_SPEED_IN);
+        }
+        else if (op.getLeftBumper()) {
+            wheels.runWheels(WHEELS_SPEED_OUT);
+        }
+        else {
+            wheels.stopWheels();
+        }
+    }
+    public Controller getController() {
+        return op;
+    }
