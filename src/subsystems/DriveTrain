@@ -9,6 +9,8 @@ public class DriveTrain {
     private WPI_VictorSPX leftBack;
     private WPI_VictorSPX rightFront;
     private WPI_VictorSPX rightBack;
+    private PIDController wheelsPID;
+
 
     private SpeedControllerGroup leftSpeedGroup;            
     private SpeedControllerGroup rightSpeedGroup;
