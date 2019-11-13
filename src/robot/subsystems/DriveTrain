@@ -5,13 +5,13 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveTrain {
 
-    private WPI_VictorSPX leftFront;
-    private WPI_VictorSPX leftBack;
-    private WPI_VictorSPX rightFront;
-    private WPI_VictorSPX rightBack;
-    private PIDController wheelsPID;
-
-    wheelsPID = new PIDController(p, i, d, wristPot, wheels);
+    private TalonSRX leftFront;
+    private TalonSRX leftBack;
+    private TalonSRX rightFront;
+    private TalonSRX rightBack;
+    private PIDController PID;
+    private AnalogPotentiometer wristPot;
+    PID = new PIDController(p, i, d, wristPot, wheels);
 
     private SpeedControllerGroup leftSpeedGroup;            
     private SpeedControllerGroup rightSpeedGroup;
@@ -23,7 +23,7 @@ public class DriveTrain {
         leftBack = new WPI_VictorSPX(1);
         rightFront = new WPI_VictorSPX(2);
         rightBack = new WPI_VictorSPX(3);
-
+        wristPot = new AnalogPotentiometer(0, potRange, potOffset);
         //Redundant fix for drivetrain - put back in code if problems arise
         
 
