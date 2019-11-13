@@ -7,7 +7,6 @@ private final double d = 0.0;
 
 private TalonSRX wheels;
 
-private PIDController wheelsPID;
 
 public WheelsPID()
 {
