@@ -14,6 +14,7 @@ public class Operator {
         wheelControl();
         }
     private void wheelControl() {
+        wheelsPID.shouldStop();
         if (getWristAngle() > (WRIST_STARTUP - OVERRIDE_TOLERANCE)) {
             if(op.getRightBumper() || op.getLeftBumper())
                 System.out.println("Wheels cannot spin as the wrist is too close to the arm");
